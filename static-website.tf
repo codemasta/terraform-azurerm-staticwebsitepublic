@@ -1,6 +1,10 @@
 # Call our Custom Terraform Module which we built earlier
 module "azure_static_website" {             # any name we like
-  source = "./modules/azure-static-website" # mandatory
+
+  # source = "./modules/azure-static-website" # from local module
+  
+  source = "codemasta/staticwebsitepublic/azurerm" # from terraform registry
+  version = "1.0.0"
 
   # Resource Group
   location                          = "eastus"
